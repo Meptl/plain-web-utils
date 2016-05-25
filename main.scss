@@ -1,0 +1,65 @@
+@import 'sanitize';
+@import 'vars';
+@import 'rustdocs';
+
+body {
+    font-size: $font-base-size;
+    font-weight: $font-base-weight;
+    font-family: $font-base-sans-family;
+}
+
+ul {
+    padding-top: 10px;
+    list-style-type: none;
+}
+
+// Wrapper consumes entire page so I can center the content.
+#page-wrapper {
+    height: 100%;
+}
+
+#title {
+    font-size: 36;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 5px;
+    padding-top: 40px;
+    text-align: center;
+}
+
+#page {
+    text-align: center;
+    position: relative;
+    top: 30%;
+}
+
+// Utilizes rust css's button
+#submit {
+    cursor: pointer;
+    padding-right: 10px;
+    padding-left: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+}
+
+// No bottom border. Share with C.
+#fahrenheit {
+    border-bottom-width: 0px;
+}
+
+.box {
+    height: 40px;
+    width: 250px;
+    padding: 5px 10px; // Top 5; Sides 10
+    border-width: 1px;
+    border-color: $light_grey;
+}
+
+// Aligns content along a horizontal line
+.column {
+    display: inline-block;
+    height: auto;
+    vertical-align: middle;
+}
+
