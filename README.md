@@ -1,7 +1,6 @@
 # Plain Web Utilities
 
-Just some utility programs written in javascript on a white backdrop.
+Just some utility programs written in javascript on a white backdrop. The design of the pages
+focus on speed of use.
 
-Currently doesn't use any static site generators. Compile the main sass file into base.css.
-
-`sass main.scss base.css`
+Organized using jekyll.
