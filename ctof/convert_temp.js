@@ -8,8 +8,10 @@ function convertTemp() {
     outputF.innerHTML = "";
     outputC.innerHTML = "";
 
-    // Get input and convert.
+    // Get input, clear, then convert.
     var text = inputElem.value;
+    inputElem.value = "";
+
     var tempValue = parseFloat(text);
     if (tempValue) {
         inputElem.value = tempValue;

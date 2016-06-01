@@ -10,8 +10,9 @@ function convertNum() {
     outputH.innerHTML = "";
     outputB.innerHTML = "";
 
-    // Get input
+    // Get input then clear it
     var text = inputElem.value;
+    inputElem.value = ""
 
     var decValue = Number(text);
     var hexParse = parseInt(text, 16);
@@ -34,6 +35,7 @@ function convertNum() {
         outputD.innerHTML = hexParse;
         outputB.innerHTML = "0b" + hexParse.toString(2);
     }
+
 
     return false; // Prevents page reload on form submission
 }
