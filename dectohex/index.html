@@ -1,11 +1,11 @@
 ---
 layout: default
-title: C - F
+title: Dec - Hex
 type: utility
 ---
 
 <div id="page">
-  <form id="input" class="column" onsubmit="return convertTemp()">
+  <form id="input" class="column" onsubmit="return convertNum()">
     <input id="text-input" class="box" type="text"/>
     <button id="submit">
       <span class="bar"></span>
@@ -13,11 +13,13 @@ type: utility
     </button>
   </form>
   <div class="column">
-    <div id="fahrenheit" class="box">
+    <div id="decimal" class="box">
     </div>
-    <div id="celsius" class="box">
+    <div id="hex" class="box">
+    </div>
+    <div id="binary" class="box">
     </div>
   </div>
 </div>
 
-<script src="convert_temp.js"></script>
+<script src="convert_num.js"></script>
