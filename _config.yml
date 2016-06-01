@@ -4,7 +4,6 @@ email: ctchin13@gmail.com
 description: Some web utility programs on a white backdrop. Designed for quick usage.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username: jekyllrb
 github_username:  Meptl
 
 # Build settings

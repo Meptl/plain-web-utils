@@ -15,13 +15,17 @@
 
   <ul>
 
-    <li>
-      <a href="/ctof.html">C - F</a>
-    </li>
+  	{% for page in site.pages %}
+      {% if page.type == "utility" %}
 
-    <li>
-      <a href="/asdf.html">Dead link</a>
-    </li>
+        <li>
+
+          <a href="{{ page.url }}">{{ page.title }}</a>
+
+        </li>
+
+      {% endif %}
+	  {% endfor %}
 
   </ul>
 
