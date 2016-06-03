@@ -12,7 +12,7 @@ function convertNum() {
 
     // Get input then clear it
     var text = inputElem.value;
-    inputElem.value = ""
+    inputElem.value = "";
 
     var decValue = Number(text);
     var hexParse = parseInt(text, 16);

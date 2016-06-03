@@ -24,7 +24,12 @@ ul {
     width: 250px;
     padding: 5px 10px; // Top 5; Sides 10
     border-width: 1px;
+    border-top-width: 0px; // Only first child will have a top border
     border-color: $light_grey;
+}
+
+.box:first-child {
+    border-top-width: 1px;
 }
 
 // Aligns content along a horizontal line
@@ -38,6 +43,14 @@ ul {
     vertical-align: inherit;
 }
 
+.arrow-right {
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid black;
+}
+
 // Wrapper consumes entire page so I can center the content.
 #page-wrapper {
     height: 100%;
@@ -49,6 +62,19 @@ ul {
     top: 30%;
 }
 
+#title {
+    font-size: 36pt;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 5px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#tool {
+    padding-top: 40px;
+}
+
 // Utilizes rust css's button
 #submit {
     cursor: pointer;
@@ -57,18 +83,4 @@ ul {
     width: 50px;
     height: 50px;
     background-color: #fff;
-}
-
-// No bottom border. Share with C.
-#fahrenheit {
-    border-bottom-width: 0px;
-}
-
-#title {
-    font-size: 36pt;
-    font-weight: 500;
-    line-height: 1.5;
-    letter-spacing: 5px;
-    padding-top: 40px;
-    text-align: center;
 }
