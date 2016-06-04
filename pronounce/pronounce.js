@@ -3,10 +3,22 @@ function onInput() {
     var inputElem = document.getElementById("text-input");
 
     // Get input then clear it
-    var text = inputElem.value;
+    var text = inputElem.value.toLowerCase();
 
-    new Audio("http://www.onelook.com/pronounce/macmillan/US/"
-            + text + "-American-English-pronunciation.mp3").play();
+    // To listen for a File Not Found error we have to bind to the source tag
+    var audio = new Audio();
+    var source = document.createElement("source");
+    source.src = "http://www.onelook.com/pronounce/macmillan/US/" + text +
+        "-American-English-pronunciation.mp3";
+    audio.appendChild(source);
+    audio.volume = 0.5;
+
+    source.addEventListener("error", function() {
+        inputElem.value = "";
+    });
+
+    audio.play();
+
 
     return false; // Prevents page reload on form submission
 }
