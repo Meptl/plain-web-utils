@@ -6,16 +6,23 @@ type: utility
 
 <div id="tool">
   <form id="input" class="column" onsubmit="return convertTemp()">
-    <input id="text-input" class="box" type="text"/>
+    <div id="input-wrapper">
+      <div id="input-overlay" class="box light-font unselectable">
+        32
+      </div>
+      <input id="text-input" class="box" type="text"/>
+    </div>
     <button id="submit">
       <span class="bar"></span>
       <span class="bar"></span>
     </button>
   </form>
   <div class="column">
-    <div id="fahrenheit" class="box">
+    <div id="fahrenheit" class="box light-font">
+        89.60°F
     </div>
-    <div id="celsius" class="box">
+    <div id="celsius" class="box light-font">
+        0.000°C
     </div>
   </div>
 </div>

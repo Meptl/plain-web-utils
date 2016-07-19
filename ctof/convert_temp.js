@@ -1,12 +1,20 @@
-function convertTemp() {
-    // DOM Elements of interest
-    var inputElem = document.getElementById("text-input");
-    var outputF = document.getElementById("fahrenheit");
-    var outputC = document.getElementById("celsius");
+// DOM Elements of interest
+var inputElem = document.getElementById("text-input");
+var outputF = document.getElementById("fahrenheit");
+var outputC = document.getElementById("celsius");
 
+var firstSubmit = true;
+
+function convertTemp() {
     // Clear current output
     outputF.innerHTML = "";
     outputC.innerHTML = "";
+
+    if (firstSubmit) {
+        outputF.classList.remove("light-font");
+        outputC.classList.remove("light-font");
+        firstSubmit = false;
+    }
 
     // Get input, clear, then convert.
     var text = inputElem.value;
@@ -28,5 +36,9 @@ function convertTemp() {
 
 // Focus input on load
 window.onload = function() {
-    document.getElementById("text-input").focus();
+    // remove input overlay on first input
+    inputElem.onkeypress = function() {
+        document.getElementById("input-overlay").style.display = "none";
+    }
+    inputElem.focus();
 }

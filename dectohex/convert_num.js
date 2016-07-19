@@ -52,8 +52,8 @@ function convertNum() {
 
 // Focus input on load
 window.onload = function() {
+    // remove input overlay on first input
     inputElem.onkeypress = function() {
-        // remove input overlay
         document.getElementById("input-overlay").style.display = "none";
     }
     inputElem.focus();
