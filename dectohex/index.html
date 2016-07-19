@@ -6,18 +6,26 @@ type: utility
 
 <div id="tool">
   <form id="input" class="column" onsubmit="return convertNum()">
-    <input id="text-input" class="box" type="text"/>
+    <div id="input-wrapper">
+      <div id="input-overlay" class="box light-font unselectable">
+        10
+      </div>
+      <input id="text-input" class="box" type="text"/>
+    </div>
     <button id="submit">
       <span class="bar"></span>
       <span class="bar"></span>
     </button>
   </form>
   <div class="column">
-    <div id="decimal" class="box">
+    <div id="decimal" class="box light-font">
+      16
     </div>
-    <div id="hex" class="box">
+    <div id="hex" class="box light-font">
+      0xa
     </div>
-    <div id="binary" class="box">
+    <div id="binary" class="box light-font">
+      0b1010
     </div>
   </div>
 </div>
