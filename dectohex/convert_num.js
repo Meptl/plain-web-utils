@@ -4,22 +4,12 @@ var outputD = document.getElementById("decimal");
 var outputH = document.getElementById("hex");
 var outputB = document.getElementById("binary");
 
-var firstSubmit = true;
-
 function convertNum() {
     // Clear current output
     outputD.innerHTML = "";
     outputH.innerHTML = "";
     outputB.innerHTML = "";
     
-    if (firstSubmit) {
-        outputD.classList.remove("light-font");
-        outputH.classList.remove("light-font");
-        outputB.classList.remove("light-font");
-
-        firstSubmit = false;
-    }
-
     // Get input then clear it
     var text = inputElem.value;
     inputElem.value = "";
@@ -55,6 +45,15 @@ window.onload = function() {
     // remove input overlay on first input
     inputElem.onkeypress = function() {
         document.getElementById("input-overlay").style.display = "none";
+        outputD.innerHTML = "";
+        outputH.innerHTML = "";
+        outputB.innerHTML = "";
+        outputD.classList.remove("light-font");
+        outputH.classList.remove("light-font");
+        outputB.classList.remove("light-font");
+
+        // Only call this function once
+        inputElem.onkeypress = "";
     }
     inputElem.focus();
 }
