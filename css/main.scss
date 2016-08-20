@@ -76,6 +76,29 @@ a {
     border-top: 15px solid black;
 }
 
+// This class needs a defined height.
+$cross_height: 30px;
+.cross {
+    background: $text-color;
+    height: $cross_height;
+    width: $cross_height / 5;
+    position: relative;
+    border-radius: $cross_height / 4;
+    margin-left: $cross_height / 5 * 2;
+    margin-right: $cross_height / 5 * 2;
+
+    &:before {
+        content: "";
+        background: $text-color;
+        position: absolute;
+        border-radius: $cross_height / 4;
+        height: $cross_height / 5;
+        width: $cross_height;
+        left: -($cross_height / 5 * 2);
+        top: ($cross_height / 5 * 2);
+    }
+}
+
 @mixin user-select($type) {
     -webkit-user-select: $type;
        -moz-user-select: $type;
