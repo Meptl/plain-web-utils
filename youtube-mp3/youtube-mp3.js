@@ -15,29 +15,38 @@ function extractFile(base64) {
 function onInput() {
     // DOM Elements of interest
     var url = document.getElementById("text-input").value;
+    var submit_button = document.getElementById("submit").children[0];
 
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "/scripts/youtube-mp3.wsgi", true);
     //xhr.responseType = "arraybuffer";
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            var response = JSON.parse(xhr.responseText);
-            // base64 decode the data of the response and blobify it
-            var blob = extractFile(response.data);
-            var objectUrl = URL.createObjectURL(blob);
+        if (xhr.readyState == 4) {
+            // Stop spinning the submit button
+            submit_button.classList.remove("spin");
+            if (xhr.status == 200) {
+                var response = JSON.parse(xhr.responseText);
+                // base64 decode the data of the response and blobify it
+                var blob = extractFile(response.data);
+                var objectUrl = URL.createObjectURL(blob);
 
-            // Create an <a> tag and force click
-            // This is necessaru to rename the blob url
-            var dl = document.createElement("a");
-            document.body.appendChild(dl);
-            dl.style.display = "none";
-            dl.href = objectUrl;
-            dl.download = response.filename;
-            dl.click();
+                // Create an <a> tag and force click
+                // This is necessaru to rename the blob url
+                var dl = document.createElement("a");
+                document.body.appendChild(dl);
+                dl.style.display = "none";
+                dl.href = objectUrl;
+                dl.download = response.filename;
+                dl.click();
+
+            }
         }
     };
     xhr.send(url);
+
+    // Spin the submit button
+    submit_button.classList.add("spin");
 
     return false; // Prevents page reload on form submission
 }

@@ -99,16 +99,40 @@ $cross_height: 30px;
     }
 }
 
-@mixin user-select($type) {
-    -webkit-user-select: $type;
-       -moz-user-select: $type;
-        -khtml-user-select: $type;
-         -o-user-select: $type;
-            user-select: $type;
+@mixin any-mixin($prop, $values...)
+{
+    #{"-webkit-" + $prop}: $values;
+     #{"-khtml-" + $prop}: $values;
+       #{"-moz-" + $prop}: $values;
+         #{"-o-" + $prop}: $values;
+                    $prop: $values;
+}
+
+@-webkit-keyframes spinnerRotate
+{
+    from{-webkit-transform:rotate(0deg);}
+    to{-webkit-transform:rotate(360deg);}
+}
+@-moz-keyframes spinnerRotate
+{
+    from{-moz-transform:rotate(0deg);}
+    to{-moz-transform:rotate(360deg);}
+}
+@-ms-keyframes spinnerRotate
+{
+    from{-ms-transform:rotate(0deg);}
+    to{-ms-transform:rotate(360deg);}
+}
+
+.spin{
+    @include any-mixin(animation-name, spinnerRotate);
+    @include any-mixin(animation-duration, 5s);
+    @include any-mixin(animation-iteration-count, infinite);
+    @include any-mixin(animation-timing-function, linear);
 }
 
 .unselectable {
-    @include user-select(none);
+    @include any-mixin(user-select, none);
     pointer-events: none;
 }
 
