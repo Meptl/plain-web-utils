@@ -1,0 +1,70 @@
+.arrow-right {
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid black;
+}
+
+.arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid black;
+}
+
+// This class needs a defined height.
+$cross_height: 30px;
+.cross {
+    background: $text-color;
+    height: $cross_height;
+    width: $cross_height / 5;
+    position: relative;
+    border-radius: $cross_height / 4;
+    margin-left: $cross_height / 5 * 2;
+    margin-right: $cross_height / 5 * 2;
+
+    &:before {
+        content: "";
+        background: $text-color;
+        position: absolute;
+        border-radius: $cross_height / 4;
+        height: $cross_height / 5;
+        width: $cross_height;
+        left: -($cross_height / 5 * 2);
+        top: ($cross_height / 5 * 2);
+    }
+}
+
+@mixin any-mixin($prop, $values...)
+{
+    #{"-webkit-" + $prop}: $values;
+     #{"-khtml-" + $prop}: $values;
+       #{"-moz-" + $prop}: $values;
+         #{"-o-" + $prop}: $values;
+                    $prop: $values;
+}
+
+@-webkit-keyframes spinnerRotate
+{
+    from{-webkit-transform:rotate(0deg);}
+    to{-webkit-transform:rotate(360deg);}
+}
+@-moz-keyframes spinnerRotate
+{
+    from{-moz-transform:rotate(0deg);}
+    to{-moz-transform:rotate(360deg);}
+}
+@-ms-keyframes spinnerRotate
+{
+    from{-ms-transform:rotate(0deg);}
+    to{-ms-transform:rotate(360deg);}
+}
+
+.spin{
+    @include any-mixin(animation-name, spinnerRotate);
+    @include any-mixin(animation-duration, 5s);
+    @include any-mixin(animation-iteration-count, infinite);
+    @include any-mixin(animation-timing-function, linear);
+}
