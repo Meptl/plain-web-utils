@@ -9,6 +9,7 @@ function onInput() {
     audio.pause();
     audio.currentTime = 0;
     audio.src = audioURL;
+    audio.volume = 0.8;
     audio.play();
 
     return false; // Prevents page reload on form submission
