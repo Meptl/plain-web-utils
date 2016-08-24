@@ -4,12 +4,19 @@ var outputD = document.getElementById("decimal");
 var outputH = document.getElementById("hex");
 var outputB = document.getElementById("binary");
 
+function errorMessage() {
+    inputElem.classList.add("flash-red");
+    setTimeout(function() {
+        inputElem.classList.remove("flash-red");
+    }, 500);
+}
+
 function convertNum() {
     // Clear current output
     outputD.innerHTML = "";
     outputH.innerHTML = "";
     outputB.innerHTML = "";
-    
+
     // Get input then clear it
     var text = inputElem.value;
     inputElem.value = "";
@@ -34,6 +41,8 @@ function convertNum() {
         // Hex was given without a preceding 0x
         outputD.innerHTML = hexParse;
         outputB.innerHTML = "0b" + hexParse.toString(2);
+    } else {
+        errorMessage();
     }
 
 

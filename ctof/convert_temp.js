@@ -3,6 +3,13 @@ var inputElem = document.getElementById("text-input");
 var outputF = document.getElementById("fahrenheit");
 var outputC = document.getElementById("celsius");
 
+function errorMessage() {
+    inputElem.classList.add("flash-red");
+    setTimeout(function() {
+        inputElemclassList.remove("flash-red");
+    }, 500);
+}
+
 function convertTemp() {
     // Clear current output
     outputF.innerHTML = "";
@@ -21,6 +28,8 @@ function convertTemp() {
         var celsius = 5 / 9 * (tempValue - 32);
         outputF.innerHTML = fahrenheit.toPrecision(4) + "°F";
         outputC.innerHTML = celsius.toPrecision(4) + "°C";
+    } else {
+        errorMessage();
     }
 
     return false; // Prevents page reload on form submission

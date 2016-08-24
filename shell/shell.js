@@ -4,6 +4,13 @@ var output1 = document.getElementById("out1");
 var output2 = document.getElementById("out2");
 var output3 = document.getElementById("out3");
 
+function errorMessage() {
+    inputElem.classList.add("flash-red");
+    setTimeout(function() {
+        inputElemclassList.remove("flash-red");
+    }, 500);
+}
+
 function onInput() {
     // Clear current output
     output1.innerHTML = "";

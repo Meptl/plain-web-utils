@@ -1,3 +1,11 @@
+function errorMessage() {
+    var inputElem = document.getElementById("text-input");
+    inputElem.classList.add("flash-red");
+    setTimeout(function() {
+        inputElem.classList.remove("flash-red");
+    }, 500);
+}
+
 function onInput() {
     // DOM Elements of interest
     var inputElem = document.getElementById("text-input");
@@ -15,6 +23,7 @@ function onInput() {
 
     source.addEventListener("error", function() {
         inputElem.value = "";
+        errorMessage();
     });
 
     audio.play();
