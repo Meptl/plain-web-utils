@@ -12,6 +12,7 @@ function extractFile(base64) {
     var blob = new Blob([bin_arr], {type: "application/data"});
     return blob;
 }
+
 function onInput() {
     // DOM Elements of interest
     var url = document.getElementById("text-input").value;
@@ -40,6 +41,12 @@ function onInput() {
                 dl.download = response.filename;
                 dl.click();
 
+            } else {
+                var input_box = document.getElementById("text-input");
+                input_box.classList.add("flash-red");
+                setTimeout(function() {
+                    input_box.classList.remove("flash-red");
+                }, 500);
             }
         }
     };

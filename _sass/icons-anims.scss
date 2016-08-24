@@ -68,3 +68,27 @@ $cross_height: 30px;
     @include any-mixin(animation-iteration-count, infinite);
     @include any-mixin(animation-timing-function, linear);
 }
+
+$soft-red: #ff9999;
+@-webkit-keyframes flashRed
+{
+    from { background: $soft-red; }
+    to { background: default; }
+}
+@-moz-keyframes flashRed
+{
+    from { background: $soft-red; }
+    to { background: default; }
+}
+@-ms-keyframes flashRed
+{
+    from { background: $soft-red; }
+    to { background: default; }
+}
+
+.flash-red {
+    @include any-mixin(animation-name, flashRed);
+    @include any-mixin(animation-duration, 0.5s);
+    @include any-mixin(animation-iteration-count, 1);
+    @include any-mixin(animation-timing-function, linear);
+}
