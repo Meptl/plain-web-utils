@@ -23,6 +23,9 @@ function convertNum() {
 
     var decValue = Number(text);
     var hexParse = parseInt(text, 16);
+    // Ensure valid hex since parseInt does not. 'asdf' is interpreted as 'a'
+    if (/[^0-9A-F]+/i.test(text))
+        hexParse = null; // Will fall into error message
 
     if (decValue) {
         if (text.startsWith("0x")) {
