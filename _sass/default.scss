@@ -52,6 +52,20 @@ a {
     }
 }
 
+// Place class in a location around center
+.float-middle {
+    position: absolute;
+    top: 30%;
+    left: 200px;
+}
+
+.consume {
+    margin: 0;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+}
+
 @mixin any-mixin($prop, $values...)
 {
     #{"-webkit-" + $prop}: $values;
