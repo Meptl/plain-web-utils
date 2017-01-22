@@ -74,18 +74,10 @@ a {
          #{"-o-" + $prop}: $values;
                     $prop: $values;
 }
+
 .unselectable {
     @include any-mixin(user-select, none);
     pointer-events: none;
-}
-
-// Box on top of input box
-#input-overlay {
-    position: absolute;
-    display: inline;
-    top: -7px; // Needed to properly align with input field
-    border: none;
-    text-align: left;
 }
 
 #input-wrapper {

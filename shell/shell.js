@@ -32,7 +32,6 @@ function onInput() {
 window.onload = function() {
     // remove input overlay on first input
     inputElem.onkeypress = function() {
-        document.getElementById("input-overlay").style.display = "none";
         output1.innerHTML = "";
         output2.innerHTML = "";
         output3.innerHTML = "";

@@ -39,7 +39,6 @@ function convertTemp() {
 window.onload = function() {
     // remove input overlay on first input
     inputElem.onkeypress = function() {
-        document.getElementById("input-overlay").style.display = "none";
         outputF.innerHTML = "";
         outputC.innerHTML = "";
         outputF.classList.remove("light-font");

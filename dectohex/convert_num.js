@@ -56,7 +56,6 @@ function convertNum() {
 window.onload = function() {
     // remove input overlay on first input
     inputElem.onkeypress = function() {
-        document.getElementById("input-overlay").style.display = "none";
         outputD.innerHTML = "";
         outputH.innerHTML = "";
         outputB.innerHTML = "";
