@@ -19,7 +19,7 @@ function onInput() {
     var submit_button = document.getElementById("submit").children[0];
 
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "/scripts/youtube-mp3.wsgi", true);
+    xhr.open("POST", "/wsgi-scripts/youtube-mp3.wsgi", true);
     //xhr.responseType = "arraybuffer";
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
