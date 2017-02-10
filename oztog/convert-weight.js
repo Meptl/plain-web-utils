@@ -6,7 +6,7 @@ var output2 = document.getElementById("out2");
 function errorMessage() {
     inputElem.classList.add("flash-red");
     setTimeout(function() {
-        inputElemclassList.remove("flash-red");
+        inputElem.classList.remove("flash-red");
     }, 500);
 }
 
@@ -39,6 +39,7 @@ function onInput() {
 window.onload = function() {
     // remove input overlay on first input
     inputElem.onkeypress = function() {
+        inputElem.placeholder = "";
         output1.innerHTML = "";
         output2.innerHTML = "";
         output1.classList.remove("light-font");

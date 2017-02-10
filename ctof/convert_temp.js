@@ -6,7 +6,7 @@ var outputC = document.getElementById("celsius");
 function errorMessage() {
     inputElem.classList.add("flash-red");
     setTimeout(function() {
-        inputElemclassList.remove("flash-red");
+        inputElem.classList.remove("flash-red");
     }, 500);
 }
 
@@ -39,6 +39,7 @@ function convertTemp() {
 window.onload = function() {
     // remove input overlay on first input
     inputElem.onkeypress = function() {
+        inputElem.placeholder = "";
         outputF.innerHTML = "";
         outputC.innerHTML = "";
         outputF.classList.remove("light-font");
