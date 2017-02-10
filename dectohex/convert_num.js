@@ -2,7 +2,6 @@
 var inputElem = document.getElementById("text-input");
 var outputD = document.getElementById("decimal");
 var outputH = document.getElementById("hex");
-var outputB = document.getElementById("binary");
 
 function errorMessage() {
     inputElem.classList.add("flash-red");
@@ -15,7 +14,6 @@ function convertNum() {
     // Clear current output
     outputD.innerHTML = "";
     outputH.innerHTML = "";
-    outputB.innerHTML = "";
 
     // Get input then clear it
     var text = inputElem.value;
@@ -38,12 +36,10 @@ function convertNum() {
             // Given value could be both F or C, convert to both.
             outputD.innerHTML = hexParse;
             outputH.innerHTML = "0x" + hexValue;
-            outputB.innerHTML = "0b" + parseInt(hexValue, 16).toString(2);
         }
     } else if (hexParse) {
         // Hex was given without a preceding 0x
         outputD.innerHTML = hexParse;
-        outputB.innerHTML = "0b" + hexParse.toString(2);
     } else {
         errorMessage();
     }
@@ -54,14 +50,13 @@ function convertNum() {
 
 // Focus input on load
 window.onload = function() {
-    // remove input overlay on first input
+    // remove input placeholders on first input
     inputElem.onkeypress = function() {
+        inputElem.placeholder = "";
         outputD.innerHTML = "";
         outputH.innerHTML = "";
-        outputB.innerHTML = "";
         outputD.classList.remove("light-font");
         outputH.classList.remove("light-font");
-        outputB.classList.remove("light-font");
 
         // Only call this function once
         inputElem.onkeypress = "";
