@@ -19,15 +19,17 @@ function onInput() {
     var submit_button = document.getElementById("submit").children[0];
 
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "/wsgi-scripts/youtube-mp3.wsgi", true);
+    xhr.open("POST", "/scripts/youtube-mp3.wsgi", true);
     //xhr.responseType = "arraybuffer";
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4) {
             // Stop spinning the submit button
             submit_button.classList.remove("spin");
+
             if (xhr.status == 200) {
                 var response = JSON.parse(xhr.responseText);
+
                 // base64 decode the data of the response and blobify it
                 var blob = extractFile(response.data);
                 var objectUrl = URL.createObjectURL(blob);
@@ -40,7 +42,6 @@ function onInput() {
                 dl.href = objectUrl;
                 dl.download = response.filename;
                 dl.click();
-
             } else {
                 var input_box = document.getElementById("text-input");
                 input_box.classList.add("flash-red");
