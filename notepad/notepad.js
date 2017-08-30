@@ -10,6 +10,7 @@ window.onload = function() {
         inputElem.onkeypress = "";
     }
 
+    // Save note every time a character is changed.
     if (typeof(Storage) !== "undefined") {
         inputElem.onchange = function() {
             localStorage.setItem("notepad", inputElem.value);

@@ -59,11 +59,19 @@ a {
     left: 200px;
 }
 
+// 100% width + height
 .consume {
     margin: 0;
     padding: 20px;
     width: 100%;
     height: 100%;
+}
+
+.pickslider {
+    width: 200px;
+    height: 20px;
+    margin: 5px;
+    display: block;
 }
 
 @mixin any-mixin($prop, $values...)
