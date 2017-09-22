@@ -1,9 +1,5 @@
 ---
 # Only the Sass files needs front matter (the dashes are enough)
 ---
-
-@import 'sanitize';
 @import 'vars';
-@import 'rustdocs';
-@import 'default';
-@import 'icons-anims';
+@import 'picker';
