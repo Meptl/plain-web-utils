@@ -22,8 +22,6 @@ $cross_height: 30px;
     width: $cross_height / 5;
     position: relative;
     border-radius: $cross_height / 4;
-    margin-left: $cross_height / 5 * 2;
-    margin-right: $cross_height / 5 * 2;
 
     &:before {
         content: "";

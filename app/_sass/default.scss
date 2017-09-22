@@ -41,14 +41,31 @@ a {
     }
 }
 
+.center {
+    margin: auto;
+}
+
 // Aligns content along a horizontal line
+// When mobile consume width
 .column {
     display: inline-block;
     height: auto;
+    margin-bottom: 2em;
     vertical-align: middle;
 
     & > * {
         vertical-align: inherit;
+    }
+}
+
+@media only screen and (max-width: 1023px) {
+    .column {
+        display: block;
+        margin: auto;
+    }
+
+    .column > div {
+        margin: auto
     }
 }
 
@@ -81,14 +98,8 @@ a {
     pointer-events: none;
 }
 
-#input-wrapper {
-    position: relative;
-    display: inline; // Needed to properly align
-}
-
-// Wrapper consumes entire page so I can center the content.
-#page-wrapper {
-    height: 100%;
+#input {
+    display: inline;
 }
 
 #page {

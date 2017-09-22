@@ -6,12 +6,12 @@ order: 3
 ---
 
 <div id="tool">
-  <form id="input" class="column" onsubmit="return onInput()">
+  <form id="input" onsubmit="return onInput()">
     <label for="file-input" id="upload" style="cursor: pointer;">
-      <div class="cross"></div>
+      <div class="cross center"></div>
     </label>
     <input id="file-input" type="file" accept="audio/*" onchange="return onUpload()"/>
-    <button id="submit" style="display: none;">
+    <button id="submit" class="center" style="display: none;">
       <div class="arrow-right"></div>
     </button>
   </form>

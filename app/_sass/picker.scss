@@ -1,7 +1,22 @@
+$pickslider_height: 1em;
+
 .pickslider {
     width: 200px;
     height: 20px;
-    margin: 5px;
     display: block;
 }
 
+#outColor {
+    width: 80px;
+    height: 80px;
+    border-width: 5px;
+    border-color: $light_grey;
+}
+
+#outText {
+    font-size: 24pt;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 2px;
+    text-align: center;
+}
