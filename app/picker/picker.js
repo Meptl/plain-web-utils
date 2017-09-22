@@ -6,6 +6,7 @@ var outColor = document.getElementById("outColor");
 var outText = document.getElementById("outText");
 
 // Default color chosen.
+// TODO: localStorage
 var currR = 255;
 var currG = 0;
 var currB = 0;
@@ -69,8 +70,24 @@ function initCanvas() {
 }
 
 function updateOutput() {
+    // TODO: Incorporate brightness and saturation.
     outColor.style.background = "rgb(" + currR + ", " + currG + ", " + currB + ")";
-    outText.innerHTML = "#" + currR.toString(16) + currG.toString(16) + currB.toString(16);
+
+    var currROut = currR.toString(16);
+    var currGOut = currG.toString(16);
+    var currBOut = currB.toString(16);
+
+    if (currROut.length == 1) {
+        currROut = "0" + currROut;
+    }
+    if (currGOut.length == 1) {
+        currGOut = "0" + currGOut;
+    }
+    if (currBOut.length == 1) {
+        currBOut = "0" + currBOut;
+    }
+
+    outText.innerHTML = "#" + currROut + currGOut + currBOut;
 }
 
 // Focus input on load
