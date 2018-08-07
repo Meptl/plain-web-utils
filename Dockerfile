@@ -1,14 +1,14 @@
-FROM meptl/jekyll-nginx-uwsgi
+FROM jekyll/jekyll:3.8 as builder
 
-RUN apk add uwsgi-python
-RUN apk add youtube-dl
+COPY app .
+RUN jekyll build --destination /tmp/build
+
+FROM nginx:1.15
 
 # Copy files into the image
+RUN cat /etc/nginx/nginx.conf
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY uwsgi.ini /etc/uwsgi.ini
-COPY app /app
+COPY --from=builder /tmp/build /app
 WORKDIR /app
 
-# Build the site
-RUN cd /app \
-    && jekyll build
+# Inherit CMD from nginx
